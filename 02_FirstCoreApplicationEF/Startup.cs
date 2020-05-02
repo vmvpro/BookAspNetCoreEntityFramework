@@ -27,7 +27,8 @@ namespace FirstCoreApplicationEF
 
 			app.Run(async (context) =>
 			{
-				await context.Response.WriteAsync("Hello World!");
+				context.Response.Headers.Add("Content-Type", "text/html;charset=utf-8");
+				await context.Response.WriteAsync("ВМВ");
 			});
 		}
 	}

@@ -21,6 +21,7 @@ namespace FirstCoreApplicationEF.Controllers {
                 new { Name = response.Name, WillAttend = response.WillAttend });
         }
 
+
         public IActionResult Thanks(GuestResponse response) => View(response);
 
         public IActionResult ListResponses() => 
