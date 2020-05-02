@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace _02_FirstCoreApplicationEF
+namespace FirstCoreApplicationEF
 {
 	public class Program
 	{

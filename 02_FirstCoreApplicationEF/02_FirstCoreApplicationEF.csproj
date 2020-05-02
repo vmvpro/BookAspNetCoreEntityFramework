@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <RootNamespace>_02_FirstCoreApplicationEF</RootNamespace>
+    <RootNamespace>FirstCoreApplicationEF</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
