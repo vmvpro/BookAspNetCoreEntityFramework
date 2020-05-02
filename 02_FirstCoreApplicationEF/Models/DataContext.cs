@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace PartyInvites.Models {
+namespace FirstCoreApplicationEF.Models {
 
     public class DataContext : DbContext {
 

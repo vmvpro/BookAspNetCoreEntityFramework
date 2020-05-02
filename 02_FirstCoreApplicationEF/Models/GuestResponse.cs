@@ -1,4 +1,4 @@
-﻿namespace PartyInvites.Models {
+﻿namespace FirstCoreApplicationEF.Models {
 
     public class GuestResponse {
 
