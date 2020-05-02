@@ -24,7 +24,14 @@ namespace WorkingWithDatabases
 			string conString = Configuration["ConnectionStrings:DefaultConnection"];
 			services.AddDbContext<DataContext>(options =>
 				options.UseSqlServer(conString));
+
+			services.AddDbContext<DataContext>(options =>
+			{
+				options.EnableSensitiveDataLogging(true);
+				options.UseSqlServer(conString);
+			});
 		}
+
 
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
