@@ -1,13 +1,20 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>SportsStore</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<meta name="viewport" content="width=device-width" />
+	<title>SportsStore</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
 <body>
-    <div class="p-2">
-        @RenderBody()
-    </div>
+	<div class="p-2">
+		@RenderBody()
+	</div>
+	
+	<hr />
+	
+	<a class="btn btn-primary" asp-controller="Home" asp-action="Index">Index</a>
+	<a class="btn btn-primary" asp-controller="Home" asp-action="AddProduct">AddProduct</a>
+	<a class="btn btn-primary" asp-controller="Home" asp-action="UpdateProduct">UpdateProduct</a>
+
 </body>
 </html>
