@@ -5,20 +5,14 @@ namespace SportsStore.Controllers {
 
     public class HomeController : Controller {
 		private IRepository repository;
-	    //private ICategoryRepository catRepository;
+		private ICategoryRepository catRepository;
 
-		//public HomeController(IRepository repo, ICategoryRepository catRepo)
-		//{
-		// repository = repo;
-		// catRepository = catRepo;
-		//}
-
-		public HomeController(IRepository repo)
+		public HomeController(IRepository repo, ICategoryRepository catRepo)
 		{
 			repository = repo;
-			//catRepository = catRepo;
+			catRepository = catRepo;
 		}
-
+		
 		public IActionResult Index()
 	    {
 		    return View(repository.Products);
@@ -26,7 +20,7 @@ namespace SportsStore.Controllers {
 		
 		public IActionResult UpdateProduct(long key)
 	    {
-		    //ViewBag.Categories = catRepository.Categories;
+		    ViewBag.Categories = catRepository.Categories;
 		    return View(key == 0 ? new Product() : repository.GetProduct(key));
 	    }
 
