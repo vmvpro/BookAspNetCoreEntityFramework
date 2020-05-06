@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SportsStore.Models.Pages;
 
 namespace SportsStore.Models {
 
@@ -6,9 +7,11 @@ namespace SportsStore.Models {
 
         IEnumerable<Product> Products { get; }
 
-        Product GetProduct(long key);
+		PagedList<Product> GetProducts (QueryOptions options);
 
-        void AddProduct(Product product);
+	    Product GetProduct(long key);
+
+		void AddProduct(Product product);
 
         void UpdateProduct(Product product);
 
