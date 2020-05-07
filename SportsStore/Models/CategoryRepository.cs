@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SportsStore.Models.Pages;
 
 namespace SportsStore.Models {
 
@@ -6,19 +7,26 @@ namespace SportsStore.Models {
 
         IEnumerable<Category> Categories { get; }
 
-        void AddCategory(Category category);
+	    PagedList<Category> GetCategories(QueryOptions options);
+
+		void AddCategory(Category category);
         void UpdateCategory(Category category);
         void DeleteCategory(Category category);
     }
 
     public class CategoryRepository : ICategoryRepository {
-        private DataContext context;
+		private DataContext context;
 
-        public CategoryRepository(DataContext ctx) => context = ctx;
+	    public CategoryRepository(DataContext ctx) => context = ctx;
 
-        public IEnumerable<Category> Categories => context.Categories;
+	    public IEnumerable<Category> Categories => context.Categories;
 
-        public void AddCategory(Category category) {
+		public PagedList<Category> GetCategories(QueryOptions options)
+	    {
+		    return new PagedList<Category>(context.Categories, options);
+	    }
+
+		public void AddCategory(Category category) {
             context.Categories.Add(category);
             context.SaveChanges();
         }
