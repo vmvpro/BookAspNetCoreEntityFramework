@@ -6,13 +6,49 @@ namespace Chapter11_WorkingWithEFCore
 {
 	public class HomeController : Controller
 	{
+		private IDataRepository repository;
+
+		public HomeController(IDataRepository repo)
+		{
+			repository = repo;
+		}
+
 		public IActionResult Index()
 		{
-			return View(new Product[] {
-				new Product {   Name = "PI",    Category = "Catl",  Price = 10  },
-				new Product {   Name = "P2",    Category = "Cat2",  Price = 20  },
-				new Product {   Name = "P3",    Category = "Cat3",  Price = 30  }
-			});
+			return View(repository.GetAllProducts());
+		}
+
+		public IActionResult Create()
+		{
+			ViewBag.CreateMode = true;
+			return View("Editor", new Product());
+		}
+
+		[HttpPost]
+		public IActionResult Create(Product product)
+		{
+			repository.CreateProduct(product);
+			return RedirectToAction(nameof(Index));
+		}
+
+		public IActionResult Edit(long id)
+		{
+			ViewBag.CreateMode = false;
+			return View("Editor", repository.GetProduct(id));
+		}
+
+		[HttpPost]
+		public IActionResult Edit(Product product)
+		{
+			repository.UpdateProduct(product);
+			return RedirectToAction(nameof(Index));
+		}
+
+		[HttpPost]
+		public IActionResult Delete(long id)
+		{
+			repository.DeleteProduct(id);
+			return RedirectToAction(nameof(Index));
 		}
 	}
 }
