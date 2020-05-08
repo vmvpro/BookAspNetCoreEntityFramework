@@ -24,12 +24,15 @@ namespace Chapter11_WorkingWithEFCore.Models {
         }
 
         public IEnumerable<Product> GetAllProducts() {
-            //Console.WriteLine("GetAllProducts");
+            Console.WriteLine("GetAllProducts");
             return context.Products;
         }
 
         public void CreateProduct(Product newProduct)
         {
+	        //Console.Clear();
+			Console.WriteLine("CreateProduct");
+			Debug.WriteLine("CreateProduct");
 			context.Products.Add(newProduct);
 	        context.SaveChanges();
 	        //Console.WriteLine("CreateProduct: "  
@@ -38,8 +41,10 @@ namespace Chapter11_WorkingWithEFCore.Models {
 
         public void UpdateProduct(Product changedProduct) {
 
-	        //var _changedProduct = context.Products.Find(changedProduct.Id);
-	        context.Update(changedProduct);
+	        Console.WriteLine("UpdateProduct");
+
+			//var _changedProduct = context.Products.Find(changedProduct.Id);
+			context.Update(changedProduct);
 	        context.SaveChanges();
 
 			//Console.WriteLine("UpdateProduct : "
